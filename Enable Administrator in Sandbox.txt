@@ -1,0 +1,41 @@
+# Enable Administrator in Sandbox
+
+
+# By default, the Windows Sandbox Administrator account is disabled.
+
+PowerShell > Get-LocalUser -Name "Administrator"
+
+Name          Enabled Description
+----          ------- -----------
+Administrator False   Built-in account for administering the computer/domain
+
+# To enable the Administrator account
+
+net user "Administrator" /active:yes
+
+# Allow blank passwords
+Then set policy Accounts: Limit local account use of blank passwords to console logon only to Disabled.
+
+- Start > gpedit.msc
+
+- Computer Configuration > Windows Settings > Security Settings > Local Policies > Security Options
+Open Accounts: Limit local account use of blank passwords to console logon only
+
+- Select Disabled
+
+- click [Apply] and [OK]
+
+
+# runas Administrator using blank password
+
+To test, start an elevated cmd.exe command using runas.exe. Use a blank password (just press Enter)
+
+PowerShell > runas.exe /user:Administrator C:\Windows\System32\cmd.exe
+
+-> Enter the password for Administrator: {press enter}
+
+-> Attempting to start C:\Windows\System32\cmd.exe as user "3C3F3100-C191-4\Administrator" ...
+
+# In the new cmd.exe window, check the user
+
+C:\Windows\system32>whoami.exe -> 3c3f3100-c191-4\administrator
