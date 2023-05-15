@@ -1,0 +1,16 @@
+<Configuration>
+    <vGPU>Enable</vGPU>
+    <Networking>Enabled</Networking>
+    <AudioInput>Disable</AudioInput>
+    <VideoInput>Disable</VideoInput>
+    <PrinterRedirection>Disable</PrinterRedirection>
+    <ClipboardRedirection>Default</ClipboardRedirection>
+    <ProtectedClient>Disable</ProtectedClient>
+    <MappedFolders>
+        <MappedFolder>
+            <HostFolder>C:\Users\name\Desktop\sandbox apps</HostFolder>
+            <SandboxFolder>C:\Users\WDAGUtilityAccount\Desktop\sandbox apps</SandboxFolder>
+            <ReadOnly>false</ReadOnly>
+        </MappedFolder>
+    </MappedFolders>
+</Configuration>
